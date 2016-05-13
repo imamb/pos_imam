@@ -24,8 +24,8 @@ public class RestProdukService implements ProdukService {
 	@Inject
 	private ProdukRepository produkRepository;
 	
-	//@Inject
-	//private DetailBeliRepository detailbeliRepository;
+	@Inject
+	private DetailBeliRepository detailbeliRepository;
 	
 	@Override
 	public Produk getProdukById(long id){
@@ -70,7 +70,6 @@ public class RestProdukService implements ProdukService {
 		produkRepository.delete(id);
 	}
 	
-	/*
 	@Override
 	@Transactional
 	public boolean addPembelianToProduk(long id,long pembelianId){
@@ -96,7 +95,7 @@ public class RestProdukService implements ProdukService {
 	public boolean removePembelianFromProduk(long id, long pembelianId) {
 		Produk p=getProdukById(id);
 		DetailBeli detailBeli=detailbeliRepository.findByProdukIdAndPembelianId(p.getId(), pembelianId);
-		detailbeliRepository.delete(detailBeli.getId());
+		detailbeliRepository.delete(detailBeli);
 		return true;
 	}
 	
@@ -112,5 +111,15 @@ public class RestProdukService implements ProdukService {
 		}
 		return new PageImpl<Pembelian>(pembelians,pageable,detailBelis.getTotalElements());
 	}
-	*/	
+	/*
+	@Override
+	@Transactional
+	public boolean removePembelianFromProduk(long id) {
+		Produk p=getProdukById(id);
+		detailbeliRepository.delete(p.getPembelians());
+		return true;
+	}
+	*/
+	
+	
 }
