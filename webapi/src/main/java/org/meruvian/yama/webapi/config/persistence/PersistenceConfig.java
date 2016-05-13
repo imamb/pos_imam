@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@EntityScan({ "org.meruvian.yama","tot6.news" })
-@EnableJpaRepositories({ "org.meruvian.yama","tot6.news" })
+@EntityScan({ "org.meruvian.yama","tot6.news","tugas.pos" })
+@EnableJpaRepositories({ "org.meruvian.yama","tot6.news","tugas.pos" })
 public class PersistenceConfig {
 }

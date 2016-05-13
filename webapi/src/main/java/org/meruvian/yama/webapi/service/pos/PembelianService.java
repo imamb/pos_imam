@@ -18,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 
 import tugas.pos.Pembelian;
 import tugas.pos.Produk;
+import tugas.pos.Sales;
 
 @Path("/api/pembelian")
 @Produces(MediaType.APPLICATION_JSON) 
@@ -55,5 +56,17 @@ public interface PembelianService {
 	@DELETE
 	@Path("/{id}/produks/{produkId}")
 	boolean removeProdukFromPembelian(@PathParam("id") long id, @PathParam("produkId") long produkId);
+	
+	@GET
+	@Path("/{id}/saless")
+	Page<Sales> findSalesByPembelian(@PathParam("id") long id, Pageable pageable);
+	
+	@PUT
+	@Path("/{id}/saless/{salesId}")
+	boolean addSalesToPembelian(@PathParam("id") long id, @PathParam("salesId") long salesId);
+	
+	@DELETE
+	@Path("/{id}/saless/{salesId}")
+	boolean removeSalesFromPembelian(@PathParam("id") long id, @PathParam("salesId") long salesId);
 
 }
