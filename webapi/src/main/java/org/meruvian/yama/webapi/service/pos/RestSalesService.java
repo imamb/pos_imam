@@ -23,10 +23,10 @@ import tugas.pos.SalesRepository;
 public class RestSalesService implements SalesService {
 	@Inject
 	private SalesRepository salesRepository;
-	
+	/*
 	@Inject
 	private SalesDetailRepository salesdetailRepository;
-	
+	*/
 	@Override
 	public Sales getSalesById(long id){
 		return salesRepository.findById(id);
@@ -71,7 +71,7 @@ public class RestSalesService implements SalesService {
 	public void deleteSales(long id){
 		salesRepository.delete(id);
 	}
-	
+	/*
 	@Override
 	@Transactional
 	public boolean addPembelianToSales(long id,long pembelianId){
@@ -96,7 +96,7 @@ public class RestSalesService implements SalesService {
 	public boolean removePembelianFromSales(long id,long pembelianId){
 		Sales s=getSalesById(id);
 		SalesDetail sd=salesdetailRepository.findBySalesIdAndPembelianId(s.getId(), pembelianId);
-		salesdetailRepository.delete(sd);
+		salesdetailRepository.delete(sd.getId());
 		return true;
 	}
 	
@@ -113,5 +113,5 @@ public class RestSalesService implements SalesService {
 		
 		return new PageImpl<Pembelian>(pembelians,pageable,salesDetail.getTotalElements());
 	}
-	
+	*/
 }

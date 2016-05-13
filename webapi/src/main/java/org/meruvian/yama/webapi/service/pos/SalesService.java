@@ -43,6 +43,7 @@ public interface SalesService {
 	@Path("/{id}")
 	void deleteSales(@PathParam("id") long id);
 	
+	/*
 	@GET
 	@Path("/{id}/pembelians")
 	Page<Pembelian> findPembelianBySales(@PathParam("id") long id, Pageable pageable);
@@ -54,5 +55,5 @@ public interface SalesService {
 	@DELETE
 	@Path("/{id}/pembelians/{pembelianId}")
 	boolean removePembelianFromSales(@PathParam("id") long id, @PathParam("pembelianId") long pembelianId);
-	
+	*/
 }
